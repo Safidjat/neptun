@@ -1,0 +1,151 @@
+*{
+    font-family: 'NotoSans';
+    box-sizing: border-box;
+}
+#miqInp::-webkit-inner-spin-button, 
+#miqInp::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#count::-webkit-inner-spin-button, 
+#count::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#sw3 .swiper-slide:hover .yumru{
+    background-color: #ff8300;
+    color: white;
+}
+.sc:hover img{
+    transform: scale(1.2);
+}
+
+
+.overflow-y-scroll::-webkit-scrollbar {
+    width: 3px; 
+    background-color: #c7c7c7; 
+}
+
+.overflow-y-scroll::-webkit-scrollbar-thumb {
+    background-color: #cd6900; 
+}
+
+.overflow-y-scroll::-webkit-scrollbar-track {
+    background-color: #c7c7c7; 
+}
+.overflow-y-auto::-webkit-scrollbar {
+    width: 3px; 
+    background-color: #c7c7c7; 
+}
+
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #cd6900; 
+}
+
+
+::-webkit-scrollbar-track {
+  background-color: #c7c7c7; 
+}
+
+.stick {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.paginationjs .paginationjs-pages li.active {
+    border:1px solid #ff8300 !important;
+}
+.paginationjs .paginationjs-pages li {
+    margin-inline: 2px;
+    border: 1px solid #aaa !important;
+}
+.paginationjs .paginationjs-pages li:hover {
+    border: 1px solid #ff8300 !important;
+}
+.paginationjs .paginationjs-pages li>a:hover {
+    border: 1px solid #ff8300 !important;
+    background: #ff8300 !important;
+    color: #fff !important;
+}
+.paginationjs .paginationjs-pages li.active>a {
+    background: transparent !important;
+    color: #ff8300 !important;
+}
+.paginationjs .paginationjs-pages li.active :hover {
+    color: #fff !important;
+    background: #ff8300 !important;
+}
+
+
+/* range slider container */
+.range-slider {
+  position: relative;
+  width: 100%;
+}
+
+/* Slider track (the base line) */
+.slider-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #e0e0e0;
+  transform: translateY(-50%);
+  border-radius: 4px;
+}
+
+/* Colored range bar (between handles) */
+.slider-range {
+  position: absolute;
+  top: 50%;
+  height: 3px;
+  background: #ff8300;
+  transform: translateY(-50%);
+  border-radius: 4px;
+}
+
+/* Slider handles */
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: #ff8300;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  touch-action: none;
+  z-index: 2;
+}
+
+.ui-widget-header,.ui-widget-content{
+    border: 1px solid #dddddd;
+    height: 4px !important;
+}
+.ui-widget-header {
+    border: none !important;
+    background: #ff8300 !important;
+    height: 2.5px !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    border: none !important;
+    background: #ff8300 !important;
+    outline: none;
+    width: 11px !important;
+    height: 11px !important;
+    border-radius: 50%;
+    
+}
+

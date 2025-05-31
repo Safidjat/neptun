@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+    --color-body: #f2f2f2;
+    --color-or: #ff8300;
+    
+    --breakpoint-one: 530px;
+    --breakpoint-vniz: 280px;
+    --breakpoint-one0: 360px;
+    --breakpoint-inp: 448px;
+    --breakpoint-one1: 480px;
+    --breakpoint-desk: 770px;
+    --breakpoint-desk1: 990px;
+    --breakpoint-uc: 1000px;
+    --breakpoint-yanyana: 1200px;
+    
+    --shadow-navSh: -1px 3px 3px 0 rgb(0 0 3 / .2);
+    --shadow-hovSh: 3px 0 4px 0 rgb(0 0 2 / .2);
+}
