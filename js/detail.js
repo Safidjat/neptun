@@ -1,5 +1,5 @@
 import { getUseProdById } from "../services/api.js";
-import {verifyHeart,categoryHeartNotColored,categoryHeartColored,baglaUyariyi  } from "../utilities/index.js";
+import {verifyHeart,categoryHeartNotColored,categoryHeartColored,baglaUyariyi,handleSebet  } from "../utilities/index.js";
 let ulduzlar;
 let starsArr;
 let rengli;
@@ -102,19 +102,22 @@ function showDetail(detail){
                         <div class="flex flex-col items-start max-desk:items-center gap-[10px]">
                             <div class="flex items-center gap-[10px] text-[16px]">
                                 <div class="flex items-center gap-[20px]">
-                                    <div
+                                    <div onclick="handleMiq(${-1},this.parentElement)"
                                         class="cursor-pointer rounded-full bg-[#e5e7eb] h-[32px] w-[32px] grid place-items-center">
                                         <span>-</span></div>
-                                    <input id="count" value="1" type="number"
+                                    <div>
+                                        <input id="count" value="1" type="number"
                                         class="text-center h-[26px] w-[26px] text-[#3d3d3d] font-[700] outline-none" />
-                                    <div
+                                    </div>
+                                    <div onclick="handleMiq(${1},this.parentElement)"
                                         class="cursor-pointer rounded-full bg-[#e5e7eb] h-[32px] w-[32px] grid place-items-center">
                                         <span>+</span></div>
                                 </div>
                                 <span>Ədəd</span>
                             </div>
                             <div class="flex items-center flex-wrap gap-[10px]">
-                                <button onmouseenter="this.querySelector('div').style.opacity='1'"
+                                <button onclick="sebeteAt(${detail.id},this.parentElement.previousElementSibling.querySelector('div').children[1].querySelector('input').value)" 
+                                    onmouseenter="this.querySelector('div').style.opacity='1'"
                                     onmouseleave="this.querySelector('div').style.opacity='0'"
                                     class="relative cursor-pointer text-white hover:bg-[#de7200] bg-or px-[21px] h-[31px] rounded-[15px] transition-all duration-200 ease-in font-[600] text-[12px] text-nowrap">
                                     <span>Səbətə at</span>
@@ -197,4 +200,15 @@ window.detHeart=(div)=>{
 }
 window.baglaUyariyiDet=(xmark)=>{
     baglaUyariyi(xmark)
+}
+
+window.handleMiq=(num,div)=>{
+    const divChild=div.children[1];
+    const inp=divChild.querySelector('input');
+    inp.value=+inp.value+num;
+    if(inp.value<=0) inp.value=1;
+}
+
+window.sebeteAt=(id,num)=>{
+    handleSebet(id,num)
 }

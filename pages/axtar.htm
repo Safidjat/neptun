@@ -309,7 +309,7 @@
                                 transform="translate(-1314.51 -134.544)"></path>
                         </svg>
                     </div>
-                    <div class="relative pr-[10px] py-[10px] cursor-pointer">
+                    <div id="relBasket" onclick="basketiAcBagla()" class="relative pr-[10px] py-[10px] cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20.88" height="17.944"
                             viewBox="0 0 20.88 17.944">
                             <defs>
@@ -320,7 +320,28 @@
                         </svg>
                         <div
                             class="absolute top-0 right-0 w-[17px] h-[17px] rounded-full text-[#000] text-[12px] bg-[#00ff00] grid place-items-center">
-                            <span>0</span></div>
+                            <span id="mehsulCount">0</span>
+                        </div>
+                        <div id="basketList" onclick="event.stopPropagation()" class="origin-top-right scale-0 opacity-0 transition-all duration-200 ease-in-out absolute top-[120%] right-0 inp:min-w-[300px] desk:min-w-[400px] bg-white shadow-lg rounded-b-[3px] border-t-[2px] p-[16px] border-t-or flex flex-col gap-[15px] z-[99999999999999999999999999999999999]">
+                            <ul class="flex flex-col">
+                                <li class="border-b-[1px] py-[8px] flex items-center justify-between max-inp:flex-col max-inp:gap-[10px] hover:bg-[#f3f4f6]">
+                                    <div class="flex items-center gap-[12px] text-gray-500 hover:text-or text-[12px]">
+                                        <a href="/pages/detail.htm" class="w-[48px] h-[48px] rounded-[6px] overflow-hidden"><img src="/img/cerez.jpg" class="w-full h-full object-cover" alt="" /></a>
+                                        <a href="/pages/detail.htm" class="">Nurlan CENNETi Hurlernen KG</a>
+                                    </div>
+                                    <h3 id="nece" class="text-[12px] text-nowrap">x <span>1</span></h3>
+                                    <div class="flex items-center gap-[10px] text-[12px]">
+                                        <h2><span>3.50</span>₼</h2>
+                                        <i class="fa-solid fa-trash text-gray-500 hover:text-or"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                            <h1 class="text-[12px] font-bold self-end">Ümumi məbləğ: <span id="umMeb">3.50</span>₼</h1>
+                            <div class="flex items-center justify-between max-inp:flex-col max-inp:gap-[10px]">
+                                <button onclick="sebetiTem()" class="cursor-pointer bg-gray-600 text-[12px] text-nowrap text-white px-4 py-2 rounded-3xl hover:bg-orange-400 transition-all duration-300">Səbəti təmizlə</button>
+                                <button class="cursor-pointer bg-[#ff8300] text-[12px] text-nowrap text-white px-4 py-2 rounded-3xl hover:bg-orange-600 transition-all duration-300">Sifarişi rəsmiləşdir</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div onclick="acBagla()"

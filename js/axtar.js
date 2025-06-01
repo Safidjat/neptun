@@ -1,5 +1,5 @@
 import { getUseProdBySearch } from "../services/api.js";
-import {verifyHeart,categoryHeartNotColored,categoryHeartColored,baglaUyariyi  } from "../utilities/index.js";
+import {verifyHeart,categoryHeartNotColored,categoryHeartColored,baglaUyariyi,handleMiqdar,handleSebet  } from "../utilities/index.js";
 
 const butunSecenekler=document.getElementById('butunSecenekler');
 const url=new URLSearchParams(location.search);
@@ -19,16 +19,18 @@ function getAll(name){
                             <h1 class="text-[#181818] text-[22px] font-[700]">${item.price}₼</h1>
                             <div class="flex flex-col gap-[10px] items-center mb-[20px] mt-auto">
                                 <div class="flex items-center gap-[5px] ">
-                                    <i class="fa-solid fa-minus text-or cursor-pointer"></i>
+                                    <i onclick="handleMiq(${-1},this.parentElement)" class="fa-solid fa-minus text-or cursor-pointer"></i>
                                     <div class="flex items-center">
-                                        <input id="miqInp" value="1" type="number"
+                                        <input value="1" type="number"
                                             class="text-right h-[26px] p-[9px] w-[39px] text-[12px] text-[#3d3d3d] font-[700] outline-none" />
                                         <span class="text-[11px] text-[#000]">Ədəd</span>
                                     </div>
-                                    <i class="fa-solid fa-plus text-or cursor-pointer"></i>
+                                    <i onclick="handleMiq(${1},this.parentElement)" class="fa-solid fa-plus text-or cursor-pointer"></i>
                                 </div>
                                 <div class="flex items-center justify-center flex-wrap gap-[10px]">
-                                    <button onmouseenter="this.querySelector('div').style.opacity='1'" onmouseleave="this.querySelector('div').style.opacity='0'" class="relative cursor-pointer text-white hover:bg-[#de7200] bg-or px-[21px] h-[31px] rounded-[15px] transition-all duration-200 ease-in font-[600] text-[12px] text-nowrap">
+                                    <button onclick="sebeteAt(${item.id},this.parentElement.previousElementSibling.querySelector('div').querySelector('input').value)" 
+                                        onmouseenter="this.querySelector('div').style.opacity='1'" 
+                                        onmouseleave="this.querySelector('div').style.opacity='0'" class="relative cursor-pointer text-white hover:bg-[#de7200] bg-or px-[21px] h-[31px] rounded-[15px] transition-all duration-200 ease-in font-[600] text-[12px] text-nowrap">
                                         <span>Səbətə at</span>
                                         <div class="opacity-0 z-[99999] transition-all pointer-events-none duration-400 ease-in-out absolute top-[-100%] left-0 bg-[#000] rounded-[2px] ">
                                             <div class="relative px-[15px] py-[3px] grid place-items-center">
@@ -106,4 +108,13 @@ window.axtHeart=(div)=>{
 }
 window.baglaUyariyiAxt=(xmark)=>{
     baglaUyariyi(xmark)
+}
+
+window.handleMiq=(num,div)=>{
+    handleMiqdar(num,div);
+}
+
+
+window.sebeteAt=(id,num)=>{
+    handleSebet(id,num)
 }

@@ -1,7 +1,7 @@
 import { getUseDiscProducts, getUsePopyularProducts, 
     getUseProducts,getUseProdByCatId } from "../services/api.js";
 
-import { verifyHeart,baglaUyariyi } from "../utilities/index.js";
+import { verifyHeart,baglaUyariyi,handleMiqdar,handleSebet } from "../utilities/index.js";
 
 
 getUseProducts().then(info=>{
@@ -78,15 +78,15 @@ function show(id,data,discounted=false){
                     }
                     <div class="flex flex-col gap-[10px] items-center mb-[20px] mt-auto">
                         <div class="flex items-center gap-[5px]">
-                            <i class="fa-solid fa-minus text-or cursor-pointer"></i>
+                            <i onclick="handleMiq(${-1},this.parentElement)" class="fa-solid fa-minus text-or cursor-pointer"></i>
                             <div class="flex items-center">
-                                <input id="miqInp" value="1" type="number"
+                                <input value="1" type="number"
                                     class="text-right h-[26px] p-[9px] w-[39px] text-[12px] text-[#3d3d3d] font-[700] outline-none" />
                                 <span class="text-[11px] text-[#000]">Ədəd</span>
                             </div>
-                            <i class="fa-solid fa-plus text-or cursor-pointer"></i>
+                            <i onclick="handleMiq(${1},this.parentElement)" class="fa-solid fa-plus text-or cursor-pointer"></i>
                         </div>
-                        <button
+                        <button onclick="sebeteAt(${item.id},this.previousElementSibling.children[1].querySelector('input').value)"
                             class="cursor-pointer text-white hover:bg-[#de7200] bg-or px-[21px] h-[31px] rounded-[15px] transition-all duration-200 ease-in font-[600] text-[12px]">Səbətə
                             at</button>
                     </div>
@@ -146,4 +146,12 @@ window.baglaUyariyiInd=(xmark)=>{
 }
 window.indFun=(div,id,funNot,fun)=>{
     verifyHeart(div,id,funNot,fun)
+}
+
+window.handleMiq=(num,div)=>{
+    handleMiqdar(num,div);
+}
+
+window.sebeteAt=(id,num)=>{
+    handleSebet(id,num)
 }

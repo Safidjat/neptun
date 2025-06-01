@@ -1,4 +1,5 @@
 import { getVerifyToken,getUseProdById } from "../services/api.js"
+import { handleSebet} from "../utilities/index.js";
 const list=document.getElementById('list');
 let wishler=JSON.parse(localStorage.getItem('arzuBasketi')) || [];
 const wishObjects=[];
@@ -98,7 +99,7 @@ window.showWishes = () => {
                                 <h3 class="text-or text-[15px]">${item.price.toFixed(2)} ₼</h3>
                             </div>
                             <div class="flex max-one0:flex-col items-center gap-[10px]">
-                                <button onclick="event.preventDefault()" class="cursor-pointer bg-or hover:bg-orange-500 text-white px-3 py-1 rounded-full">🛒</button>
+                                <button onclick="event.preventDefault();sebeteAt(${item.id},1)" class="cursor-pointer bg-or hover:bg-orange-500 text-white px-3 py-1 rounded-full">🛒</button>
                                 <button onclick="event.preventDefault();wishiSil(${item.id})" class="cursor-pointer bg-white hover:bg-orange-500 text-or hover:text-white px-3 py-1 rounded-full w-[46px] h-[32px] grid place-items-center"><i class="fa-solid fa-trash"></i></button>
                             </div>
                         </div>
@@ -120,4 +121,8 @@ window.silAll=()=>{
     wishler.length=0;
     localStorage.setItem('arzuBasketi',JSON.stringify(wishler));
     showWishes();
+}
+
+window.sebeteAt=(id,num)=>{
+    handleSebet(id,num)
 }

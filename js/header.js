@@ -1,4 +1,5 @@
 import { getUseCategories, getUseProdBySearch } from "../services/api.js"
+import { showBasket} from "../utilities/index.js";
 
 const clsOutsd=document.getElementById('clsOutsd')
 const fix=document.getElementById('btns')
@@ -12,10 +13,17 @@ const hidscr=document.getElementById('hidscr')
 const sw1=document.getElementById('sw1')
 const searchInp=document.getElementById('searchInp')
 const secenekler=document.getElementById('secenekler')
+const basketList=document.getElementById('basketList')
+const basketUl=basketList.querySelector('ul')
+const relBasket=document.getElementById('relBasket')
+const umMeb=document.getElementById('umMeb')
+const mehsulCount=document.getElementById('mehsulCount')
+let basketStatus=false;
 const uleler=Array.from(document.querySelectorAll('.uleler'));
 const data=[];
 let arzuBasketi = JSON.parse(localStorage.getItem('arzuBasketi')) || [];
-export{arzuBasketi}
+let mehsulBasketi = JSON.parse(localStorage.getItem('mehsulBasketi')) || [];
+export{arzuBasketi,mehsulBasketi,basketList,basketUl,umMeb,mehsulCount}
 
 let flag=false;
 $('#hideShow').click(function(){
@@ -356,4 +364,36 @@ window.hamisinaYonlendir=(e)=>{
     if((e.keyCode==13||!e.keyCode) && searchInp.value.trim().length>=2){
         return location.href=`/pages/axtar.htm?name=${searchInp.value}`;
     }
+}
+
+
+window.basketiAcBagla=()=>{
+   basketStatus=!basketStatus;
+   handleBasket();
+}
+window.handleBasket=()=>{
+    if(!basketStatus){
+        basketList.classList.remove('scale-[100%]', 'opacity-[100%]')
+        basketList.classList.add('scale-0', 'opacity-0')
+    }else{
+        basketList.classList.remove('scale-0', 'opacity-0')
+        basketList.classList.add('scale-[100%]', 'opacity-[100%]')
+    }
+}
+handleBasket();
+
+
+showBasket()
+window.mehSil=(id)=>{
+    let mehsulBasketi = JSON.parse(localStorage.getItem('mehsulBasketi')) || [];
+    mehsulBasketi.splice(0, mehsulBasketi.length, ...mehsulBasketi.filter(obj => obj.id !== id));
+    localStorage.setItem('mehsulBasketi',JSON.stringify(mehsulBasketi));
+    showBasket()
+}
+window.sebetiTem=()=>{
+    let mehsulBasketi = JSON.parse(localStorage.getItem('mehsulBasketi')) || [];
+    mehsulBasketi.length=0;
+    localStorage.setItem('mehsulBasketi',JSON.stringify(mehsulBasketi));
+    showBasket()
+    console.log(mehsulBasketi);  
 }
